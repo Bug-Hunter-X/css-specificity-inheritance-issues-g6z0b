@@ -1,0 +1,30 @@
+The following CSS code snippet demonstrates an uncommon error related to specificity and inheritance:
+
+```css
+.container {
+  font-size: 16px;
+}
+
+.container p {
+  font-size: 18px;
+}
+
+.container span {
+  font-size: 14px;
+  color: blue;
+}
+
+.container span.highlight {
+  font-size: 20px;
+}
+
+.container p span {
+  color: red; /* This rule is unexpectedly overridden */
+}
+```
+
+The unexpected behavior:
+
+The `color: red` declaration in `.container p span` is overridden by the `color: blue` declaration in `.container span`.  This happens because of how CSS specificity works. Even though `.container p span` is more specific in terms of element hierarchy, the `color: blue` declaration is inherited from `.container span`, and inheritance often wins against more-specific rules unless an explicit declaration on the child is present.
+
+This can lead to seemingly illogical behavior where styles don't apply as expected due to unintended inheritance.
