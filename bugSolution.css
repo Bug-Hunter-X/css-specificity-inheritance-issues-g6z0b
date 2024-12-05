@@ -1,0 +1,30 @@
+The following CSS code demonstrates the solution:
+
+```css
+.container {
+  font-size: 16px;
+}
+
+.container p {
+  font-size: 18px;
+}
+
+.container span {
+  font-size: 14px;
+  color: blue;
+}
+
+.container span.highlight {
+  font-size: 20px;
+}
+
+.container p span {
+  color: red !important; /* Solution 1: Use !important */
+}
+/* OR */
+.container p span {
+  color: red; 
+}
+```
+
+This addresses the issue by either using `!important` (Solution 1) to force the application of the `color: red` declaration or simply making the style more specific by removing inheritance (Solution 2). Both effectively solves the issue, though the `!important` approach should be used sparingly.  Solution 2, removing inheritance, is the preferable approach in most cases.
